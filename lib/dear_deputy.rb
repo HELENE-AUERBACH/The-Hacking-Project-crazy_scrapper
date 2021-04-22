@@ -14,7 +14,11 @@ def get_deputy_informations(deputy_url)
     # Suppression de "M. " ou "Mme " et séparation du prénom et du nom dans un tableau
     deputy_first_and_last_names_array = deputy_full_name.sub("M. ", "").sub("Mme ", "").split
     # Création du hash de ce député avec son prénom, son nom et son e-mail
-    deputy_informations_hash = {"first_name" => deputy_first_and_last_names_array[0], "last_name" => deputy_first_and_last_names_array[1], "email" => deputy_email }
+    deputy_last_name = deputy_first_and_last_names_array[1]
+    (deputy_first_and_last_names_array.length - 2).times do |index|
+      deputy_last_name += " " + deputy_first_and_last_names_array[index + 2] # Gestion des noms de familles à particule
+    end
+    deputy_informations_hash = {"first_name" => deputy_first_and_last_names_array[0], "last_name" => deputy_last_name, "email" => deputy_email }
   end
   deputy_informations_hash
 end
