@@ -25,7 +25,7 @@ if !page.nil?
   title = page.xpath('/html/head/title').text
   puts "Je vais scrapper la page intitulée \"#{title}\" (\"#{url_to_scrap}\") qui est une instance de la classe \"#{page.class}\"."
   all_cryptocurrencies_hashes_array = get_cryptocurrencies_hashes_array(page, title)
-  puts "Etant donné que tout le monde a bien besoin en toute circonstance d'un hash d'arrays de cryptocurrencies, je vous offre celui-ci : ;-p"
+  puts "Etant donné que tout le monde a bien besoin en toute circonstance d'un array de hashes de cryptomonnaies, je vous offre celui-ci : ;-p"
   puts "#{all_cryptocurrencies_hashes_array}"
   puts "Bye et n'hésitez pas à revenir m'en demander une nouvelle version si vous vous ennuyez.. sait-on jamais si Netflix tombe en panne... ;-p"
 end
